@@ -44,15 +44,20 @@ static int naga_event(struct hid_device *hdev, struct hid_field *field,
   
   if((usage->hid & HID_USAGE_PAGE) == HID_UP_KEYBOARD)
     if((t = naga_find_translation(usage->code))) {
+      printk(KERN_ERR "NAGA {from: %x, to: %x}", t->from, t->to);
       input_event(field->hidinput->input, usage->type, t->to, value);
       return 1;
     }
   return 0;
 }
 
-
+/*
+semwai@semwai:~/projects/razer-naga$ lsusb
+Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 005 Device 004: ID 1532:0090 Razer USA, Ltd Razer Naga Pro
+*/
 static const struct hid_device_id naga_devices [] = {
-  { HID_USB_DEVICE(0x1532, 0x0040) },
+  { HID_USB_DEVICE(0x1532, 0x0090) },
   { }
 };
 
