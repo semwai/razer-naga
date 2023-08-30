@@ -55,6 +55,12 @@ static int naga_event(struct hid_device *hdev, struct hid_field *field,
 semwai@semwai:~/projects/razer-naga$ lsusb
 Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 005 Device 004: ID 1532:0090 Razer USA, Ltd Razer Naga Pro
+
+wired version:
+1532:008f
+radio:
+1532:0090
+
 */
 static const struct hid_device_id naga_devices [] = {
   { HID_USB_DEVICE(0x1532, 0x0090) },
